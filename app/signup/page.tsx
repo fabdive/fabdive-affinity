@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 
-export default function SignupPage() {
+export default function SignupStep1() {
   const [formData, setFormData] = useState({
     pseudo: '',
     genre: '',
@@ -20,43 +20,80 @@ export default function SignupPage() {
   };
 
   const handleNext = () => {
-    // À remplacer plus tard par navigation vers étape 2
-    alert('Étape suivante avec : ' + JSON.stringify(formData, null, 2));
+    alert('Données actuelles :\n' + JSON.stringify(formData, null, 2));
   };
 
   return (
-    <div className="max-w-md mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">Étape 1 : Infos de base</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8 bg-gradient-to-b from-violet-900 to-black text-white">
+      <div className="w-full max-w-md bg-white text-black p-6 rounded-xl shadow-lg">
+        <h1 className="text-2xl font-bold mb-6">Étape 1 : Infos de base</h1>
 
-      <input
-        type="text"
-        name="pseudo"
-        placeholder="Ton pseudo"
-        value={formData.pseudo}
-        onChange={handleChange}
-        className="w-full border p-2 mb-3"
-      />
+        <input
+          type="text"
+          name="pseudo"
+          placeholder="Ton pseudo"
+          value={formData.pseudo}
+          onChange={handleChange}
+          className="w-full border border-gray-300 p-2 mb-4 rounded"
+        />
 
-      <select name="genre" value={formData.genre} onChange={handleChange} className="w-full border p-2 mb-3">
-        <option value="">Genre</option>
-        <option value="homme">Homme</option>
-        <option value="femme">Femme</option>
-        <option value="autre">Autre</option>
-      </select>
+        <select name="genre" value={formData.genre} onChange={handleChange} className="w-full border p-2 mb-4 rounded">
+          <option value="">Genre</option>
+          <option value="homme">Homme</option>
+          <option value="femme">Femme</option>
+          <option value="autre">Autre</option>
+        </select>
 
-      <select name="orientation" value={formData.orientation} onChange={handleChange} className="w-full border p-2 mb-3">
-        <option value="">Orientation</option>
-        <option value="hétéro">Hétéro</option>
-        <option value="homo">Homo</option>
-        <option value="bi">Bi</option>
-        <option value="pan">Pan</option>
-      </select>
+        <select name="orientation" value={formData.orientation} onChange={handleChange} className="w-full border p-2 mb-4 rounded">
+          <option value="">Orientation</option>
+          <option value="hétéro">Hétérosexuel(le)</option>
+          <option value="homo">Homosexuel(le)</option>
+          <option value="bi">Bisexuel(le)</option>
+          <option value="pan">Pansexuel(le)</option>
+        </select>
 
-      {/* Ajoute d’autres champs ici : taille, morphologie, etc. */}
+        <input
+          type="text"
+          name="taille"
+          placeholder="Taille (en cm)"
+          value={formData.taille}
+          onChange={handleChange}
+          className="w-full border p-2 mb-4 rounded"
+        />
 
-      <button onClick={handleNext} className="bg-fuchsia-600 text-white px-4 py-2 rounded mt-4">
-        Étape suivante
-      </button>
+        <select name="morphologie" value={formData.morphologie} onChange={handleChange} className="w-full border p-2 mb-4 rounded">
+          <option value="">Morphologie</option>
+          <option value="S">Fine (S)</option>
+          <option value="M">Moyenne (M)</option>
+          <option value="L">Formes (L)</option>
+          <option value="XL">Voluptueuse (XL)</option>
+        </select>
+
+        <select name="couleurPeau" value={formData.couleurPeau} onChange={handleChange} className="w-full border p-2 mb-4 rounded">
+          <option value="">Couleur de peau</option>
+          <option value="caucasien">Caucasien</option>
+          <option value="africain">Africain</option>
+          <option value="asiatique">Asiatique</option>
+          <option value="métisse">Métisse</option>
+          <option value="autre">Autre</option>
+        </select>
+
+        <input
+          type="text"
+          name="localisation"
+          placeholder="Région / Ville"
+          value={formData.localisation}
+          onChange={handleChange}
+          className="w-full border p-2 mb-6 rounded"
+        />
+
+        <button
+          onClick={handleNext}
+          className="w-full bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-semibold py-2 px-4 rounded transition duration-200"
+        >
+          Étape suivante
+        </button>
+      </div>
     </div>
   );
 }
