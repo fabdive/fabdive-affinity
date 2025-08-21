@@ -6,7 +6,7 @@ export default function Home() {
       <div className="max-w-2xl">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-goldSoft">Fabdive Affinity 4U</h1>
         <p className="text-xl md:text-2xl mb-8 text-yellowGlow">
-          L'app qui révèle vos affinités invisibles.
+          L&rsquo;app qui révèle vos affinités invisibles
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
