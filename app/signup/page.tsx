@@ -1,48 +1,62 @@
 // app/signup/page.tsx
-'use client'
+'use client';
 
-import { useState } from 'react'
-
-const steps = [
-  'Infos de base',
-  'Préférences recherchées',
-  'Intention',
-  'Auto-définition',
-  'Visibilité',
-  'Crush secret',
-  'Profil intuitif',
-]
+import { useState } from 'react';
 
 export default function SignupPage() {
-  const [step, setStep] = useState(0)
+  const [formData, setFormData] = useState({
+    pseudo: '',
+    genre: '',
+    orientation: '',
+    taille: '',
+    morphologie: '',
+    couleurPeau: '',
+    localisation: '',
+  });
 
-  const next = () => setStep((s) => Math.min(s + 1, steps.length - 1))
-  const back = () => setStep((s) => Math.max(s - 1, 0))
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleNext = () => {
+    // À remplacer plus tard par navigation vers étape 2
+    alert('Étape suivante avec : ' + JSON.stringify(formData, null, 2));
+  };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-8">
-      <h1 className="text-2xl font-bold mb-4">Étape {step + 1} : {steps[step]}</h1>
+    <div className="max-w-md mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-4">Étape 1 : Infos de base</h1>
 
-      <div className="bg-white p-6 rounded shadow-md w-full max-w-md">
-        {/* ICI TU INSÈRES LE FORMULAIRE POUR CHAQUE ÉTAPE */}
-        <p>Contenu pour : <strong>{steps[step]}</strong></p>
-      </div>
+      <input
+        type="text"
+        name="pseudo"
+        placeholder="Ton pseudo"
+        value={formData.pseudo}
+        onChange={handleChange}
+        className="w-full border p-2 mb-3"
+      />
 
-      <div className="flex justify-between w-full max-w-md mt-6">
-        <button
-          onClick={back}
-          disabled={step === 0}
-          className="bg-gray-200 px-4 py-2 rounded disabled:opacity-50"
-        >
-          Retour
-        </button>
-        <button
-          onClick={next}
-          className="bg-fuchsia-600 text-white px-4 py-2 rounded"
-        >
-          {step === steps.length - 1 ? 'Terminer' : 'Suivant'}
-        </button>
-      </div>
+      <select name="genre" value={formData.genre} onChange={handleChange} className="w-full border p-2 mb-3">
+        <option value="">Genre</option>
+        <option value="homme">Homme</option>
+        <option value="femme">Femme</option>
+        <option value="autre">Autre</option>
+      </select>
+
+      <select name="orientation" value={formData.orientation} onChange={handleChange} className="w-full border p-2 mb-3">
+        <option value="">Orientation</option>
+        <option value="hétéro">Hétéro</option>
+        <option value="homo">Homo</option>
+        <option value="bi">Bi</option>
+        <option value="pan">Pan</option>
+      </select>
+
+      {/* Ajoute d’autres champs ici : taille, morphologie, etc. */}
+
+      <button onClick={handleNext} className="bg-fuchsia-600 text-white px-4 py-2 rounded mt-4">
+        Étape suivante
+      </button>
     </div>
-  )
+  );
 }
