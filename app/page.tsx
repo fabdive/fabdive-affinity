@@ -1,84 +1,110 @@
+// app/signup/page.tsx
+
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { useState } from 'react'
 
-export default function SignupPage() {
-  const [email, setEmail] = useState('')
-  const [name, setName] = useState('')
-  const [password, setPassword] = useState('')
+export default function Signup() {
+  const [photo, setPhoto] = useState<File | null>(null)
 
   return (
-    <div
-      className="min-h-screen flex flex-col items-center justify-start bg-cover bg-center"
-      style={{ backgroundImage: "url('/1-inscription.png')" }}
-    >
-      {/* Bande logo en haut */}
-      <div className="w-full bg-[#14018d] py-6 px-8 flex justify-center">
+    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/1-inscription.png')" }}>
+      
+      {/* Bandeau indigo */}
+      <div className="bg-[#14018d] w-full py-3 flex justify-center">
         <Image
           src="/logo-fabdive.png"
-          alt="Fabdive"
-          width={120}
-          height={40}
+          alt="Logo Fabdive"
+          width={300}
+          height={100}
           className="h-auto"
         />
       </div>
 
       {/* Formulaire */}
-      <div className="w-full max-w-md mt-10 px-6 py-8 rounded-xl text-center font-now">
-        <h1 className="text-[#fff0b8] text-2xl font-bold mb-6">
+      <div className="flex flex-col items-center justify-center px-4 py-8">
+        <h1 className="text-[#fff0b8] text-xl font-bold mb-6 text-center">
           Allons-y, crée ton profil
         </h1>
 
-        <form className="space-y-4">
+        <form className="space-y-4 w-full max-w-md font-now">
           <input
             type="email"
             placeholder="Ton email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full py-3 px-4 bg-[#ffffff14] text-[#fff0b8] placeholder-[#fff0b8]/60 rounded-xl border border-[#fff0b8]/20 focus:ring-2 focus:ring-[#e7b95d] outline-none"
+            className="w-full px-4 py-2 rounded-full border border-[#fff0b8] bg-[#14018d] text-[#fff0b8] placeholder-[#fff0b8] focus:outline-none"
           />
 
           <button
             type="button"
-            className="flex items-center justify-center gap-2 bg-[#14018d] text-[#fff0b8] font-semibold rounded-xl py-3 px-4 w-full hover:bg-[#1800a0] transition"
+            className="w-full px-4 py-2 rounded-full bg-[#14018d] border border-[#fff0b8] text-[#fff0b8] flex items-center justify-center gap-2"
           >
-            <img src="/google-icon.png" alt="Google" className="w-5 h-5" />
+            <Image src="/google-icon.png" alt="Google" width={20} height={20} />
             Connecte toi avec ton compte
           </button>
 
           <input
             type="text"
             placeholder="Ton prénom ou pseudo préféré"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full py-3 px-4 bg-[#ffffff14] text-[#fff0b8] placeholder-[#fff0b8]/60 rounded-xl border border-[#fff0b8]/20 focus:ring-2 focus:ring-[#e7b95d] outline-none"
+            className="w-full px-4 py-2 rounded-full border border-[#fff0b8] bg-[#14018d] text-[#fff0b8] placeholder-[#fff0b8] focus:outline-none"
           />
 
           <input
             type="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full py-3 px-4 bg-[#ffffff14] text-[#fff0b8] placeholder-[#fff0b8]/60 rounded-xl border border-[#fff0b8]/20 focus:ring-2 focus:ring-[#e7b95d] outline-none"
+            className="w-full px-4 py-2 rounded-full border border-[#fff0b8] bg-[#14018d] text-[#fff0b8] placeholder-[#fff0b8] focus:outline-none"
           />
+
+          {/* Icône Caméra (plus grande) */}
+          <div className="flex justify-center mt-4">
+            <Image
+              src="/camera-icon.png"
+              alt="Camera"
+              width={48}
+              height={48}
+              className="cursor-pointer"
+            />
+          </div>
+
+          {/* Checkbox +18 ans */}
+          <div className="flex items-center gap-2 mt-4 text-[#fff0b8]">
+            <input type="checkbox" id="age-confirm" className="accent-[#e7b95d]" />
+            <label htmlFor="age-confirm" className="text-sm">Je confirme avoir plus de 18 ans</label>
+          </div>
 
           <button
             type="submit"
-            className="w-full mt-4 bg-[#e7b95d] text-[#14018d] font-bold py-3 rounded-xl hover:bg-[#f3cb79] transition"
+            className="w-full px-4 py-2 rounded-full bg-[#e7b95d] text-[#14018d] font-bold mt-6"
           >
-            Créer mon compte
+            Continuer
           </button>
         </form>
-
-        <p className="text-[#fff0b8]/70 text-sm mt-6">
-          Tu as déjà un compte ?{' '}
-          <Link href="/login" className="underline text-[#fff0b8]">
-            Connecte-toi
-          </Link>
-        </p>
       </div>
     </div>
   )
+}
+✅ Et dans ton globals.css (ou app/signup/globals.css)
+Vérifie que tu as bien :
+
+css
+Copier
+Modifier
+@font-face {
+  font-family: 'Now';
+  src: url('/fonts/now/Now-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Now';
+  src: url('/fonts/now/Now-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Now', sans-serif;
 }
