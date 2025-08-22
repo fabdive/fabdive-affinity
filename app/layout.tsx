@@ -5,13 +5,13 @@ import { ReactNode } from 'react'
 
 export const metadata = {
   title: 'Fabdive Affinity',
-  description: 'L’app qui révèle vos affinités invisibles.',
+  description: 'Application de rencontre affinitaire',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+       <body className="font-now">{children}</body>
     </html>
   )
 }
