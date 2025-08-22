@@ -1,143 +1,94 @@
 'use client'
 
+import React from 'react'
 import { useState } from 'react'
-import Image from 'next/image'
-import Head from 'next/head'
 
-export default function Signup() {
-  const [formData, setFormData] = useState({
-    pseudo: '',
-    genre: '',
-    orientation: '',
-    taille: '',
-    corpulence: '',
-    couleurPeau: '',
-    localisation: ''
-  })
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
-
-  const handleNext = () => {
-    console.log('Étape 1 soumise :', formData)
-    // Tu peux ici rediriger vers la suite (ex : router.push('/signup/step2'))
-  }
+export default function SignupStep1() {
+  const [email, setEmail] = useState('')
+  const [pseudo, setPseudo] = useState('')
+  const [password, setPassword] = useState('')
+  const [isOver18, setIsOver18] = useState(false)
 
   return (
-    <>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <div
-        className="min-h-screen bg-cover bg-center flex flex-col items-center px-6 py-10"
-        style={{ backgroundImage: "url('/fond 1 page inscription.png')" }}
-      >
-        <div className="w-full max-w-md text-center">
-          <Image
-            src="/logo-fabdive.png"
-            alt="Fabdive Logo"
-            width={200}
-            height={60}
-            className="mx-auto mb-6"
-          />
-          <h2 className="text-[#fff0b8] text-xl font-bold mb-6">Étape 1 : Infos de base</h2>
-
-          <form className="space-y-4">
-            <input
-              type="text"
-              name="pseudo"
-              value={formData.pseudo}
-              onChange={handleChange}
-              placeholder="Ton prénom ou pseudo"
-              className="w-full rounded-full px-5 py-3 bg-[#14018d] text-[#fff0b8] placeholder-[#fff0b8] border border-[#e7b95d]"
-            />
-
-            <select
-              name="genre"
-              value={formData.genre}
-              onChange={handleChange}
-              className="w-full rounded-full px-5 py-3 bg-[#14018d] text-[#fff0b8] border border-[#e7b95d]"
-            >
-              <option value="">Ton genre</option>
-              <option value="Homme">Homme</option>
-              <option value="Femme">Femme</option>
-              <option value="Autre">Autre</option>
-            </select>
-
-            <select
-              name="orientation"
-              value={formData.orientation}
-              onChange={handleChange}
-              className="w-full rounded-full px-5 py-3 bg-[#14018d] text-[#fff0b8] border border-[#e7b95d]"
-            >
-              <option value="">Orientation</option>
-              <option value="Hétérosexuel(le)">Hétérosexuel(le)</option>
-              <option value="Homosexuel(le)">Homosexuel(le)</option>
-              <option value="Bisexuel(le)">Bisexuel(le)</option>
-              <option value="Asexuel(le)">Asexuel(le)</option>
-            </select>
-
-            <input
-              type="text"
-              name="taille"
-              value={formData.taille}
-              onChange={handleChange}
-              placeholder="Taille (en cm)"
-              className="w-full rounded-full px-5 py-3 bg-[#14018d] text-[#fff0b8] placeholder-[#fff0b8] border border-[#e7b95d]"
-            />
-
-            <select
-              name="corpulence"
-              value={formData.corpulence}
-              onChange={handleChange}
-              className="w-full rounded-full px-5 py-3 bg-[#14018d] text-[#fff0b8] border border-[#e7b95d]"
-            >
-              <option value="">Corpulence</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-              <option value="XXL">XXL</option>
-            </select>
-
-            <select
-              name="couleurPeau"
-              value={formData.couleurPeau}
-              onChange={handleChange}
-              className="w-full rounded-full px-5 py-3 bg-[#14018d] text-[#fff0b8] border border-[#e7b95d]"
-            >
-              <option value="">Couleur de peau</option>
-              <option value="Caucasien">Caucasien</option>
-              <option value="Africain">Africain</option>
-              <option value="Asiatique">Asiatique</option>
-              <option value="Métis">Métis</option>
-              <option value="Autre">Autre</option>
-            </select>
-
-            <input
-              type="text"
-              name="localisation"
-              value={formData.localisation}
-              onChange={handleChange}
-              placeholder="Ville ou région"
-              className="w-full rounded-full px-5 py-3 bg-[#14018d] text-[#fff0b8] placeholder-[#fff0b8] border border-[#e7b95d]"
-            />
-
-            <button
-              type="button"
-              onClick={handleNext}
-              className="mt-6 w-full bg-[#e7b95d] text-[#14018d] font-bold py-3 rounded-full transition hover:opacity-90"
-            >
-              Étape suivante
-            </button>
-          </form>
-        </div>
+    <div
+      className="min-h-screen bg-cover bg-center text-[#fff0b8] font-sans"
+      style={{ backgroundImage: "url('/fond-profil.png')" }}
+    >
+      {/* Bandeau Fabdive */}
+      <div className="bg-[#14018d] py-4 flex justify-center items-center">
+        <img src="/logo-fabdive.png" alt="Logo Fabdive" className="h-10" />
       </div>
-    </>
+
+      {/* Contenu */}
+      <div className="flex flex-col items-center justify-center px-6 pt-6 pb-10 max-w-md mx-auto">
+
+        <h1 className="text-xl font-bold mb-6 text-center">
+          Allons-y, crée ton profil
+        </h1>
+
+        {/* Email */}
+        <input
+          type="email"
+          placeholder="Ton email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full p-3 mb-4 rounded-full bg-white bg-opacity-20 text-white placeholder-white focus:outline-none"
+        />
+
+        {/* Connexion Google */}
+        <button className="w-full p-3 mb-4 rounded-full bg-[#14018d] text-white flex items-center justify-center gap-2 text-sm border border-white border-opacity-30">
+          <img src="/google-icon.png" alt="Google" className="h-5 w-5" />
+          Connecte toi avec ton compte
+        </button>
+
+        {/* Pseudo */}
+        <input
+          type="text"
+          placeholder="Ton prénom ou pseudo préféré"
+          value={pseudo}
+          onChange={(e) => setPseudo(e.target.value)}
+          className="w-full p-3 mb-4 rounded-full bg-white bg-opacity-20 text-white placeholder-white focus:outline-none"
+        />
+
+        {/* Password */}
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full p-3 mb-4 rounded-full bg-white bg-opacity-20 text-white placeholder-white focus:outline-none"
+        />
+
+        {/* Âge minimum */}
+        <label className="flex items-center text-sm mb-6">
+          <input
+            type="checkbox"
+            checked={isOver18}
+            onChange={() => setIsOver18(!isOver18)}
+            className="mr-2 accent-[#e7b95d]"
+          />
+          Confirmes que tu as plus de 18 ans
+        </label>
+
+        {/* Upload photo (non fonctionnel pour l’instant) */}
+        <div className="w-20 h-20 rounded-full border border-dashed border-white flex items-center justify-center mb-6">
+          <img src="/camera-icon.png" alt="Camera" className="w-8 h-8 opacity-80" />
+        </div>
+
+        {/* Bouton continuer */}
+        <button
+          className="bg-[#e7b95d] text-[#14018d] font-bold px-6 py-3 rounded-full w-full text-center"
+        >
+          Continuer
+        </button>
+
+        {/* Message confidentialité */}
+        <p className="text-xs mt-6 text-center leading-relaxed text-white">
+          Toutes tes informations sont confidentielles.<br />
+          Tu dévoiles ou pas ta photo quand tu le veux,<br />
+          avant ou après les matchs.
+        </p>
+      </div>
+    </div>
   )
 }
