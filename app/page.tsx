@@ -1,5 +1,5 @@
 // app/page.tsx
-
+import './globals.css';
 export default function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-fuchsia-900 via-purple-950 to-black text-white flex flex-col items-center justify-center p-6 text-center">
