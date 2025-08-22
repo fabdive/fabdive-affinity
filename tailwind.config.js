@@ -1,27 +1,25 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
-  content: ['./src/**/*.{ts,tsx}', './app/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './src/**/*.{ts,tsx}',
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
   prefix: '',
   theme: {
     container: {
       center: true,
       padding: '2rem',
-      screens: { '2xl': '1400px' },
-    },
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {
-      fontFamily: {
-        now: ['Now', 'sans-serif'],
+      screens: {
+        '2xl': '1400px',
       },
     },
-  },
-  plugins: [],
-}
+    extend: {
+      fontFamily: {
+        now: ['Now', 'sans-serif'], // ✅ syntaxe propre sans doubles quotes
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
