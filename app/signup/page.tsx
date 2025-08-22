@@ -81,28 +81,3 @@ export default function Signup() {
     </div>
   )
 }
-✅ À ajouter dans /app/globals.css
-Ajoute tout en haut du fichier :
-
-css
-Copier
-Modifier
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
-✅ À mettre dans tailwind.config.ts
-Dans la section theme.extend.fontFamily, ajoute :
-
-ts
-Copier
-Modifier
-comfortaa: ['Comfortaa', 'sans-serif'],
-Exemple :
-
-ts
-Copier
-Modifier
-extend: {
-  fontFamily: {
-    comfortaa: ['Comfortaa', 'sans-serif'],
-  },
-  // ...
-}
