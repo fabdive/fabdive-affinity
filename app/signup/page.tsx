@@ -7,8 +7,9 @@ export default function Signup() {
   const [photo, setPhoto] = useState<File | null>(null)
 
   return (
-
-      {/* Bandeau indigo */}
+    <div className="min-h-screen bg-cover bg-center font-now" style={{ backgroundImage: "url('/1-inscription.png')" }}>
+      
+      {/* Bandeau avec logo */}
       <div className="bg-[#14018d] w-full py-3 flex justify-center">
         <Image
           src="/logo-fabdive.png"
@@ -25,7 +26,7 @@ export default function Signup() {
           Allons-y, crée ton profil
         </h1>
 
-        <form className="space-y-4 w-full max-w-md font-now">
+        <form className="space-y-4 w-full max-w-md">
           <input
             type="email"
             placeholder="Ton email"
@@ -52,7 +53,7 @@ export default function Signup() {
             className="w-full px-4 py-2 rounded-full border border-[#fff0b8] bg-[#14018d] text-[#fff0b8] placeholder-[#fff0b8] focus:outline-none"
           />
 
-          {/* Icône Caméra (plus grande) */}
+          {/* Icône Caméra */}
           <div className="flex justify-center mt-4">
             <Image
               src="/camera-icon.png"
@@ -80,3 +81,4 @@ export default function Signup() {
     </div>
   )
 }
+
