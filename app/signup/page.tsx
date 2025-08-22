@@ -7,14 +7,6 @@ export default function Signup() {
   const [photo, setPhoto] = useState<File | null>(null)
 
   return (
-    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/1-inscription.png')" }}>
-
-        <h1 className="font-now">autre test</h1>
-      
-      {/* 🔍 TEST FONT NOW ICI */}
-      <div className="text-3xl text-[#e7b95d] font-now bg-black text-center py-4">
-        Test la police pour fabdive
-      </div>
 
       {/* Bandeau indigo */}
       <div className="bg-[#14018d] w-full py-3 flex justify-center">
