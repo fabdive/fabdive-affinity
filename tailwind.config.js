@@ -9,10 +9,19 @@ module.exports = {
       padding: '2rem',
       screens: { '2xl': '1400px' },
     },
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
     extend: {
       fontFamily: {
-        now: ["'Now'", "sans-serif"], // 👈 Ajout ici
+        now: ['Now', 'sans-serif'],
       },
+    },
+  },
+  plugins: [],
+}
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
