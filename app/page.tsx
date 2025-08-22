@@ -1,28 +1,43 @@
 // app/page.tsx
 import './globals.css';
-export default function Home() {
+export default function SignupStep1() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-fuchsia-900 via-purple-950 to-black text-white flex flex-col items-center justify-center p-6 text-center">
-      <div className="max-w-2xl">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 text-goldSoft">Fabdive Affinity 4U</h1>
-        <p className="text-xl md:text-2xl mb-8 text-yellowGlow">
-          L&rsquo;app qui révèle vos affinités invisibles
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/auth"
-            className="bg-fuchsia-600 hover:bg-fuchsia-700 text-white px-6 py-3 rounded-2xl font-semibold"
+   <div
+      className="min-h-screen bg-cover bg-center flex items-center justify-center"
+      style={{ backgroundImage: "url('/1-inscription.png')" }}
+    >
+      <div className="bg-[#14018d]/90 p-8 rounded-2xl shadow-lg max-w-md w-full font-now">
+        <h1 className="text-3xl font-bold text-[#fff0b8] mb-6 text-center">
+          Crée ton profil
+        </h1>
+
+        <form>
+          <div className="mb-4">
+            <label className="block text-[#fff0b8] mb-1">Pseudo</label>
+            <input
+              type="text"
+              placeholder="Entre ton pseudo"
+              className="w-full p-3 rounded-xl bg-white/10 text-[#fff0b8] placeholder-[#fff0b8]/50 focus:outline-none"
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-[#fff0b8] mb-1">Email</label>
+            <input
+              type="email"
+              placeholder="ton@email.com"
+              className="w-full p-3 rounded-xl bg-white/10 text-[#fff0b8] placeholder-[#fff0b8]/50 focus:outline-none"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full mt-6 py-3 rounded-xl bg-[#e7b95d] text-[#14018d] font-semibold hover:bg-[#d9a84f]"
           >
-            Commencer
-          </a>
-          <a
-            href="/explore"
-            className="border border-yellowGlow text-yellowGlow px-6 py-3 rounded-2xl font-semibold"
-          >
-            Explorer
-          </a>
-        </div>
+            Continuer
+          </button>
+        </form>
       </div>
-    </main>
+    </div>
   );
 }
