@@ -83,28 +83,3 @@ export default function Signup() {
     </div>
   )
 }
-✅ Et dans ton globals.css (ou app/signup/globals.css)
-Vérifie que tu as bien :
-
-css
-Copier
-Modifier
-@font-face {
-  font-family: 'Now';
-  src: url('/fonts/now/Now-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Now';
-  src: url('/fonts/now/Now-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-body {
-  font-family: 'Now', sans-serif;
-}
