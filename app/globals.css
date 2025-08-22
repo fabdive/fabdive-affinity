@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Intégration de la police Now */
+@font-face {
+  font-family: 'Now';
+  src: url('/fonts/now/Now-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Now';
+  src: url('/fonts/now/Now-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Style global de la page */
 body {
-  font-family: sans-serif;
+  font-family: 'Now', sans-serif;
 }
