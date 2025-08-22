@@ -16,9 +16,9 @@ module.exports = {
         '2xl': '1400px',
       },
     },
-   extend: {
+  extend: {
   fontFamily: {
-    sans: ['Comfortaa', 'sans-serif'], // applique la font par défaut à "font-sans"
+    comfortaa: ['Comfortaa', 'sans-serif'],
   },
   }
       colors: {
