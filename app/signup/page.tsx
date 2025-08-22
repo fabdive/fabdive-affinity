@@ -7,9 +7,9 @@ export default function Signup() {
   const [photo, setPhoto] = useState<File | null>(null)
 
   return (
-    <div className="min-h-screen bg-cover bg-center font-now" style={{ backgroundImage: "url('/1-inscription.png')" }}>
+    <div className="min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/1-inscription.png')" }}>
       
-      {/* Bandeau avec logo */}
+      {/* Bandeau indigo */}
       <div className="bg-[#14018d] w-full py-3 flex justify-center">
         <Image
           src="/logo-fabdive.png"
@@ -26,7 +26,7 @@ export default function Signup() {
           Allons-y, crée ton profil
         </h1>
 
-        <form className="space-y-4 w-full max-w-md">
+        <form className="space-y-4 w-full max-w-md font-comfortaa">
           <input
             type="email"
             placeholder="Ton email"
@@ -81,4 +81,28 @@ export default function Signup() {
     </div>
   )
 }
+✅ À ajouter dans /app/globals.css
+Ajoute tout en haut du fichier :
 
+css
+Copier
+Modifier
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+✅ À mettre dans tailwind.config.ts
+Dans la section theme.extend.fontFamily, ajoute :
+
+ts
+Copier
+Modifier
+comfortaa: ['Comfortaa', 'sans-serif'],
+Exemple :
+
+ts
+Copier
+Modifier
+extend: {
+  fontFamily: {
+    comfortaa: ['Comfortaa', 'sans-serif'],
+  },
+  // ...
+}
