@@ -15,7 +15,9 @@
     "jsx": "preserve",
     "incremental": true,
     "plugins": [{ "name": "next" }],
-    "paths": { "@/*": ["./*"] }
+    "paths": {
+      "@/*": ["./*"]
+    },
     "types": ["@testing-library/jest-dom"]
   },
   "include": [
@@ -29,3 +31,4 @@
   ],
   "exclude": ["node_modules", ".next", "out"]
 }
+
