@@ -4,7 +4,7 @@ import NextTopLoader from 'nextjs-toploader'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import ReactQueryProvider from '@/providers/ReactQueryProvider'
+import ReactQueryProvider from '../providers/ReactQueryProvider'
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
