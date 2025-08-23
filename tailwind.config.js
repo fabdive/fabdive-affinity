@@ -18,7 +18,7 @@ module.exports = {
     },
   extend: {
   fontFamily: {
-    sans: ['Comfortaa', 'sans-serif'], // applique la font par défaut à "font-sans"
+      comfortaa: ['var(--font-comfortaa)', 'sans-serif'], // applique la font par défaut à "font-sans"
   },
 }
       colors: {
