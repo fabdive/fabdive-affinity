@@ -22,7 +22,7 @@ export default function Signup() {
 
       {/* Formulaire */}
       <div className="flex flex-col items-center justify-center px-4 py-8">
-        <h1 className="text-[#fff0b8] text-xl font-bold mb-6 text-center">
+        <h1 className="text-[#fff0b8] text-xl mb-6 text-center font-comfortaa">
           Allons-y, crée ton profil
         </h1>
 
