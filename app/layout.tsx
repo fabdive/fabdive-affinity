@@ -1,23 +1,22 @@
-// app/layout.tsx
-
 import './globals.css'
-import type { Metadata } from 'next'
+import { Comfortaa } from 'next/font/google'
 
-export const metadata: Metadata = {
-  title: 'Fabdive',
-  description: 'Application de rencontre affinitaire',
+const comfortaa = Comfortaa({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-comfortaa',
+  display: 'swap',
+})
+
+export const metadata = {
+  title: 'Fabdive Affinity',
+  description: 'Application de rencontre affinitaire originale',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
-      <body className="font-now">
-        {children}
-      </body>
+    <html lang="fr" className={comfortaa.variable}>
+      <body className="font-comfortaa">{children}</body>
     </html>
   )
 }
