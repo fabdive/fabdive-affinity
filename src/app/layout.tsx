@@ -1,5 +1,5 @@
 import { GeistSans } from 'geist/font/sans'
-import ThemeProvider from '../../providers/ThemeProvider'
+import ThemeProvider from '../providers/ThemeProvider'
 import NextTopLoader from 'nextjs-toploader'
 import { Analytics } from '@vercel/analytics/react'
 import './globals.css'
