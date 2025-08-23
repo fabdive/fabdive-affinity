@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={comfortaa.variable}>
-      <body className="font-comfortaa">{children}</body>
+      <body className="font-sans">{children}</body>
     </html>
   )
 }
