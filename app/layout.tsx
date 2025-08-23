@@ -4,7 +4,6 @@ import { Comfortaa } from 'next/font/google'
 const comfortaa = Comfortaa({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable: '--font-comfortaa',
   display: 'swap',
 })
 
@@ -15,8 +14,8 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={comfortaa.variable}>
-      <body className="font-sans">{children}</body>
+    <html lang="fr" className={comfortaa.className}>
+      <body>{children}</body>
     </html>
   )
 }
