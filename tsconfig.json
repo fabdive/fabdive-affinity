@@ -14,9 +14,10 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".", // ✅ Point de base à la racine du projet
     "plugins": [{ "name": "next" }],
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["./*"], // ✅ Permet d'importer lib/ et src/ comme "@/lib/..." ou "@/src/..."
       "@utils/*": ["src/utils/*"]
     },
     "types": []
@@ -24,7 +25,9 @@
   "include": [
     "next-env.d.ts",
     "src/**/*.ts",
-    "src/**/*.tsx"
+    "src/**/*.tsx",
+    "lib/**/*.ts",     // ✅ Inclure lib/ pour la compilation
+    "lib/**/*.tsx"     // ✅ (au cas où tu aurais des fichiers TSX)
   ],
   "exclude": ["node_modules", ".next", "out", "**/*.test.ts", "**/*.test.tsx"]
 }
