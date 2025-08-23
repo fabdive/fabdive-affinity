@@ -58,8 +58,8 @@ export default function Signup() {
             <Image
               src="/camera-icon.png"
               alt="Camera"
-              width={48}
-              height={48}
+              width={54}
+              height={54}
               className="cursor-pointer"
             />
           </div>
