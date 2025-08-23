@@ -16,11 +16,10 @@ module.exports = {
         '2xl': '1400px',
       },
     },
-  extend: {
-  fontFamily: {
-      comfortaa: ['var(--font-comfortaa)', 'sans-serif'], // applique la font par défaut à "font-sans"
-  },
-}
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-comfortaa)', 'sans-serif'], // ⚠️ Utilise "sans" ici pour que "font-sans" fonctionne
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
