@@ -1,10 +1,17 @@
-import { GeistSans } from 'geist/font/sans'
+// src/app/layout.tsx
+import './globals.css'
+import { Comfortaa } from 'next/font/google'
 import ThemeProvider from '../providers/ThemeProvider'
 import NextTopLoader from 'nextjs-toploader'
 import { Analytics } from '@vercel/analytics/react'
-import './globals.css'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import ReactQueryProvider from '../providers/ReactQueryProvider'
+
+const comfortaa = Comfortaa({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+})
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -12,8 +19,8 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: 'Next.js and Supabase Starter Kit',
-  description: 'The fastest way to build apps with Next.js and Supabase',
+  title: 'Fabdive Affinity',
+  description: 'Application de rencontre affinitaire originale',
 }
 
 export default function RootLayout({
@@ -22,25 +29,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={GeistSans.className}
-      style={{ colorScheme: 'dark' }}
-      suppressHydrationWarning
-    >
+    <html lang="fr" className={comfortaa.className} style={{ colorScheme: 'dark' }} suppressHydrationWarning>
       <body className="bg-background text-foreground">
-        <NextTopLoader showSpinner={false} height={2} color="#2acf80" />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <NextTopLoader showSpinner={false} height={2} color="#e7b95d" />
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <ReactQueryProvider>
             <main className="flex min-h-screen flex-col items-center">
               {children}
-              <Analytics />{' '}
-              {/* ^^ remove this if you are not deploying to vercel. See more at https://vercel.com/docs/analytics  */}
+              <Analytics />
             </main>
             <ReactQueryDevtools initialIsOpen={false} />
           </ReactQueryProvider>
