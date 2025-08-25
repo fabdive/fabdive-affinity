@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createBrowserClient } from '@/utils/supabase'
 
-export default function LoginPage() {
+export default function SignupPage() {
   const router = useRouter()
   const supabase = createBrowserClient()
 
@@ -13,12 +13,12 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
     setLoading(true)
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signUp({
       email,
       password,
     })
@@ -26,7 +26,7 @@ export default function LoginPage() {
     if (error) {
       setError(error.message)
     } else {
-      router.push('/profil') // ✅ redirige vers le profil si connexion réussie
+      router.push('/profil') // ✅ redirige vers la page de profil
     }
 
     setLoading(false)
@@ -34,9 +34,9 @@ export default function LoginPage() {
 
   return (
     <div className="max-w-md mx-auto mt-20 p-6 text-white bg-[#1c1c3c] rounded shadow">
-      <h1 className="text-2xl font-bold mb-6 text-center">Connexion</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">Créer un compte</h1>
 
-      <form onSubmit={handleLogin} className="space-y-4">
+      <form onSubmit={handleSignup} className="space-y-4">
         <input
           type="email"
           value={email}
@@ -57,9 +57,9 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-fuchsia-600 hover:bg-fuchsia-700 text-white font-semibold py-2 px-4 rounded"
+          className="w-full bg-yellow-500 hover:bg-yellow-600 text-[#14018d] font-semibold py-2 px-4 rounded"
         >
-          {loading ? 'Connexion...' : 'Se connecter'}
+          {loading ? 'Création...' : 'Créer mon compte'}
         </button>
 
         {error && <p className="text-red-400 text-sm text-center">{error}</p>}
