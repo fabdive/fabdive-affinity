@@ -5,11 +5,11 @@ import { NextResponse } from 'next/server'
 export async function GET(request: Request) {
   const cookieStore = cookies()
   const supabase = createServerClient(cookieStore)
+  const { data, error } = await supabase.auth.getSession()
 
-  // Cette ligne permet d’échanger le "code" du lien magique contre une session active
-  await supabase.auth.exchangeCodeForSession(
-    new URL(request.url).searchParams.get('code') || ''
-  )
+  if (data.session) {
+    return NextResponse.redirect(new URL('/', request.url))
+  }
 
-  return NextResponse.redirect(new URL('/', request.url))
+  return NextResponse.redirect(new URL('/login', request.url))
 }
