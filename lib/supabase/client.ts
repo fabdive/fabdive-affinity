@@ -1,9 +1,5 @@
-'use client'
+// lib/supabase/client.ts
+import { createBrowserClient } from '@supabase/ssr'
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
-import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs'
-import { useState } from 'react'
-
-export const useSupabase = () => {
-  const [supabase] = useState(() => createBrowserSupabaseClient())
-  return supabase
-}
+export const supabase = createClientComponentClient()
