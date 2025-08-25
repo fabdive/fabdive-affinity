@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { supabase } from '@lib/supabase/client'
+import { supabase } from '../../../lib/supabase/client' // ← chemin relatif sûr
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -37,7 +37,6 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#14018d] text-[#fff0b8] px-4">
       <div className="w-full max-w-md space-y-6">
-
         <h1 className="text-2xl font-bold text-center">Connexion</h1>
 
         <input
