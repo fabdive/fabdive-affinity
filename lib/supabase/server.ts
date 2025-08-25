@@ -1,5 +1,5 @@
 import { createServerClient } from '@supabase/ssr'
-import { cookies, headers } from 'next/headers'
+import { cookies } from 'next/headers'
 
 export const supabase = createServerClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -7,14 +7,8 @@ export const supabase = createServerClient(
   {
     cookies: {
       get(name: string) {
-        const cookie = cookies().get(name)
-        return cookie?.value // <- on retourne bien une string
-      },
-    },
-    headers: {
-      get(name: string) {
-        return headers().get(name)
-      },
-    },
+        return cookies().get(name)?.value
+      }
+    }
   }
 )
