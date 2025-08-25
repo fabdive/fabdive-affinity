@@ -1,4 +1,6 @@
 import { createBrowserClient } from '@supabase/ssr'
 
-// ✅ Ne passe aucun argument ici — la config est lue automatiquement
-export const supabase = createBrowserClient()
+export const supabase = createBrowserClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)
