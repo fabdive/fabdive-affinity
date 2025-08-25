@@ -1,6 +1,9 @@
-import { createBrowserClient } from '@supabase/ssr'
+'use client'
 
-export const supabase = createBrowserClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs'
+import { useState } from 'react'
+
+export const useSupabase = () => {
+  const [supabase] = useState(() => createBrowserSupabaseClient())
+  return supabase
+}
