@@ -1,13 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ['class'],
+  darkMode: ['class'], // ou 'media' si tu préfères auto selon le thème système
   content: [
-    './src/**/*.{ts,tsx}',
     './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.{js,ts,jsx,tsx}', // ← ajoute js ici aussi, utile pour compatibilité large
   ],
-  prefix: '',
   theme: {
     container: {
       center: true,
@@ -18,7 +17,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-comfortaa)', 'sans-serif'], // ⚠️ Utilise "sans" ici pour que "font-sans" fonctionne
+        sans: ['var(--font-comfortaa)', 'sans-serif'],
       },
       colors: {
         border: 'hsl(var(--border))',
